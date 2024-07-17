@@ -3,8 +3,8 @@ services:
     build:
       context: .
     ports:
-      - "5173:5173"
+      - 8000:5173
+    working_dir: /app
     volumes:
-      - ./src:/app/src
-    command: >
-      sh -c "npm run dev"
+      - .:/app
+    command: [ "npm", "run", "dev", "--", "--host", "0.0.0.0" ]
