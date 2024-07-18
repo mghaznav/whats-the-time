@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react';
 import { styled } from 'styled-components';
 
 const PlayerSection = styled.section`
@@ -42,12 +43,19 @@ const PlayerSection = styled.section`
 `
 
 export default function Player() {
+  const playerName = useRef();
+  const [enteredPlayerName, setEnteredPlayerName] = useState('unknown entity');
+
+  function handleClick() {
+    setEnteredPlayerName(playerName.current.value);
+  }
+
   return (
     <PlayerSection>
-      <h2>Welcome unknown entity</h2>
+      <h2>Welcome {enteredPlayerName}</h2>
       <div>
-        <input type="text" />
-        <button>Set Name</button>
+        <input ref={playerName} type="text" />
+        <button onClick={handleClick}>Set Name</button>
       </div>
     </PlayerSection>
   );
