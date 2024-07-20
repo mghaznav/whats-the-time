@@ -6,7 +6,6 @@ docker-compose.yml
 #git
 .gitignore
 .github
-.dw
 
 #General
 README.md
